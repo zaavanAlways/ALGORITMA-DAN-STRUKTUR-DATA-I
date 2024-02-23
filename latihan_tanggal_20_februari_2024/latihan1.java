@@ -1,6 +1,7 @@
 package latihan_tanggal_20_februari_2024;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class latihan1 
@@ -113,7 +114,7 @@ public class latihan1
 		return total - potongan;
 	}
 	
-	public static void main(String[] args) 
+	public static void main(String[] args) throws IOException 
 	{
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		String kodeBarang[] = new String[100];
@@ -122,8 +123,15 @@ public class latihan1
 		String kodeVoucer[] = new String[100];
 		String namaBarang[] = new String[100];
 		String voucer;	//apakah mempunyai voucer
-		
-       
+        
+        System.out.print("Input Kode Barang :  ");
+        kodeBarang[0] = buff.readLine();
+        System.out.print("Input Harga Barang : ");
+        hargaBarang[0]  = Long.parseLong(buff.readLine());
+        System.out.print("Input Jumlah Beli : ");
+        jumlahBarang[0] = Integer.parseInt(buff.readLine());
+        
+        
 	}
 
 }
