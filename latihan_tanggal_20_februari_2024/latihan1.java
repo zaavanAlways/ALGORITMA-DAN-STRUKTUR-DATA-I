@@ -143,8 +143,8 @@ public class latihan1
 
 		System.out.println("Nama Barang: " + getNamaBarang(kodeBarang[0]));
         System.out.println("Total Harga: " + getTotalHarga(hargaBarang[0], jumlahBarang[0]));
-        System.out.println("Potongan Harga: " + getPotonganHarga(voucer));
-        System.out.println("Total Bayar: " + getTotalBayar(getTotalBayar(hargaBarang[0], jumlahBarang[0]), getPotonganHarga(voucer)));
+        System.out.println("Potongan Harga: " + getPotonganHarga(kodeVoucer[0]));
+        System.out.println("Total Bayar: " + getTotalBayar(getTotalBayar(hargaBarang[0], jumlahBarang[0]), getPotonganHarga(kodeVoucer[0])));
         
 	}
 
