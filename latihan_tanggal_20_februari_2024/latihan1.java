@@ -131,6 +131,20 @@ public class latihan1
         System.out.print("Input Jumlah Beli : ");
         jumlahBarang[0] = Integer.parseInt(buff.readLine());
         
+		System.out.println("Apakah Anda Memiliki Voucer <Y/N> : ");
+		voucer = buff.readLine();
+
+		if(voucer.equalsIgnoreCase("Y")){
+			System.out.print("Input Kode Voucer : ");
+			kodeVoucer[0] = buff.readLine();
+		}else{
+			kodeVoucer[0] = " - ";
+		}
+
+		System.out.println("Nama Barang: " + getNamaBarang(kodeBarang[0]));
+        System.out.println("Total Harga: " + getTotalHarga(hargaBarang[0], jumlahBarang[0]));
+        System.out.println("Potongan Harga: " + getPotonganHarga(voucer));
+        System.out.println("Total Bayar: " + getTotalBayar(getTotalBayar(hargaBarang[0], jumlahBarang[0]), getPotonganHarga(voucer)));
         
 	}
 
