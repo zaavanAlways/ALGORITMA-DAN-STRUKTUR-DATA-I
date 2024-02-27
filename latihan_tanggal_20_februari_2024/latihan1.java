@@ -116,36 +116,74 @@ public class latihan1
 	
 	public static void main(String[] args) throws IOException 
 	{
-		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));		
 		String kodeBarang[] = new String[100];
-		int jumlahBarang[] = new int[100];
+		int jumlahBarang [] = new int [100];
 		long hargaBarang[] = new long[100];
-		String kodeVoucer[] = new String[100];
+		String kodeVoucer;
 		String namaBarang[] = new String[100];
 		String voucer;	//apakah mempunyai voucer
-        
-        System.out.print("Input Kode Barang :  ");
-        kodeBarang[0] = buff.readLine();
-        System.out.print("Input Harga Barang : ");
-        hargaBarang[0]  = Long.parseLong(buff.readLine());
-        System.out.print("Input Jumlah Beli : ");
-        jumlahBarang[0] = Integer.parseInt(buff.readLine());
-        
-		System.out.println("Apakah Anda Memiliki Voucer <Y/N> : ");
-		voucer = buff.readLine();
-
-		if(voucer.equalsIgnoreCase("Y")){
-			System.out.print("Input Kode Voucer : ");
-			kodeVoucer[0] = buff.readLine();
-		}else{
-			kodeVoucer[0] = " - ";
+		
+		long totalHarga [] = new long[100];
+		long bayar, potongan;
+		int i = 0;
+		bayar = 0;
+		
+		do
+		{	
+			System.out.print("Input Kode Barang \t= ");
+			kodeBarang[i] = br.readLine();
+			if (!kodeBarang[i].equals("-"))
+			{
+				namaBarang[i] = getNamaBarang(kodeBarang[i]);
+				System.out.println("Nama Barang \t\t= " + namaBarang[i]);
+				if(!namaBarang[i].equals("-"))
+				{
+					System.out.print("Input Harga Barang \t= ");
+					hargaBarang[i] = Long.parseLong(br.readLine());
+					System.out.print("Input Jumlah Beli \t= ");
+					jumlahBarang[i] = Integer.parseInt(br.readLine());
+					totalHarga[i] = getTotalHarga(hargaBarang[i], jumlahBarang[i]);
+					bayar = bayar + totalHarga[i];
+				}
+				else
+				{
+					bayar = bayar + totalHarga[i];
+					System.out.println("Kode Barang tidak terdaftar, silahkan ulangi!!");
+				}
+			}
+			else
+			{
+				namaBarang[i] = "-";
+			}
+			System.out.println();
+			i++;
+		}while (!kodeBarang[i-1].equals("-") || !namaBarang[i-1].equals("-"));
+		
+		if(!kodeBarang[0].equals("-"))
+		{
+			System.out.print("\nApakah Anda Memiliki Voucer <Y/N> = ");
+			voucer = br.readLine();
+			if (voucer.equalsIgnoreCase("Y"))
+			{
+				do
+				{
+					System.out.print("Input Kode Voucer \t= ");
+					kodeVoucer = br.readLine();
+				} while (kodeVoucer.length() != 8);
+				
+				potongan = getPotonganHarga(kodeVoucer);
+				System.out.println("Total Belanja Anda \t= " + bayar);
+				bayar = bayar - potongan;
+				System.out.println("Anda mendapatkan Diskon sebesar Rp." + potongan);
+				System.out.println("Total Bayar Anda \t= Rp." + bayar);
+			}
+			else
+			{
+				System.out.println("Anda tidak mendapatkan Diskon");
+				System.out.println("Total Bayar Anda \t= Rp." + bayar);
+			}	
 		}
-
-		System.out.println("Nama Barang: " + getNamaBarang(kodeBarang[0]));
-        System.out.println("Total Harga: " + getTotalHarga(hargaBarang[0], jumlahBarang[0]));
-        System.out.println("Potongan Harga: " + getPotonganHarga(kodeVoucer[0]));
-        System.out.println("Total Bayar: " + getTotalBayar(getTotalBayar(hargaBarang[0], jumlahBarang[0]), getPotonganHarga(kodeVoucer[0])));
-        
+		
 	}
-
 }
