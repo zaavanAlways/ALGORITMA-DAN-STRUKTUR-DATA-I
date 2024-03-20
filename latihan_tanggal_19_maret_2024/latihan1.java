@@ -1,4 +1,6 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class latihan1 {
     private String[] namaMahasiswa;
@@ -76,29 +78,29 @@ public class latihan1 {
             return "E";
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Masukkan jumlah mahasiswa: ");
-        int jumlahMahasiswa = scanner.nextInt();
+        int jumlahMahasiswa = Integer.parseInt(buff.readLine());
 
         latihan1 sistemNilai = new latihan1(jumlahMahasiswa);
 
         for (int i = 0; i < jumlahMahasiswa; i++) {
             System.out.println("Data Mahasiswa ke-" + (i + 1));
             System.out.print("Nama: ");
-            String nama = scanner.next();
+            String nama = buff.readLine();
             System.out.print("NPM: ");
-            String npm = scanner.next();
+            String npm = buff.readLine();
             System.out.print("Nilai Kuis: ");
-            double kuis = scanner.nextDouble();
+            double kuis = Double.parseDouble(buff.readLine());
             System.out.print("Nilai Soft Skill: ");
-            double softskill = scanner.nextDouble();
+            double softskill = Double.parseDouble(buff.readLine());
             System.out.print("Nilai Tugas: ");
-            double tugas = scanner.nextDouble();
+            double tugas = Double.parseDouble(buff.readLine());
             System.out.print("Nilai UTS: ");
-            double uts = scanner.nextDouble();
+            double uts = Double.parseDouble(buff.readLine());
             System.out.print("Nilai UAS: ");
-            double uas = scanner.nextDouble();
+            double uas = Double.parseDouble(buff.readLine());
 
             sistemNilai.inputDataMahasiswa(i, nama, npm, kuis, softskill, tugas, uts, uas);
         }
@@ -107,9 +109,8 @@ public class latihan1 {
         sistemNilai.hitungNilaiAkhir();
 
         System.out.print("\nCari (Nama/NPM): ");
-        String cari = scanner.next();
+        String cari = buff.readLine();
         sistemNilai.cariMahasiswa(cari);
 
-        scanner.close();
     }
 }
