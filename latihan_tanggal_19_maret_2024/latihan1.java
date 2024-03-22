@@ -111,6 +111,6 @@ public class latihan1 {
         System.out.print("\nCari (Nama/NPM): ");
         String cari = buff.readLine();
         sistemNilai.cariMahasiswa(cari);
-
+        // urutkan data secara ascending atau desending bebas dengan npm atau nilai akhir
     }
 }
