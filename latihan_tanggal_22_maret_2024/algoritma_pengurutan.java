@@ -28,17 +28,16 @@ public class algoritma_pengurutan<T extends Comparable<? super T>> {
     }
 
     public static void main(String[] args) {
-        algoritma_pengurutan asd = new algoritma_pengurutan();
-        int[] array = { 64, 34, 25, 12, 22, 11, 90 };
-        int n = array.length;
-        asd.bubbleSort_1(array, n);
-        System.out.println("data terurut:");
-        for (int i = 0; i < n; i++) {
-            System.out.print(array[i] + " ");
+        algoritma_pengurutan<Integer> asd = new algoritma_pengurutan<>();
+
+        int[] array1 = { 34, 64, 90, 11, 25, 12, 22 };
+        asd.bubbleSort_1(array1, array1.length);
+        System.out.println("Data belum urut : ");
+        System.out.println("34,64,90,11,25,12,22");
+        System.out.println("Data Terurut : ");
+        for (int i : array1) {
+            System.out.print(i + " ");
         }
-        Comparable[] array1 = {2,5,6,1,-1};
-        asd.bubbleSort(array1, n);
-        System.out.println("data terurut :");
-    
+
     }
 }
