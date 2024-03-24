@@ -78,12 +78,56 @@ public class latihan1 {
             return "E";
     }
 
+    // urutkan data secara ascending atau desending bebas dengan npm atau nilai
+    // akhir
+    public void descending_berdasarkan_nilai_akhir() {
+        for (int i = 0; i < namaMahasiswa.length - 1; i++) {
+            for (int j = 0; j < namaMahasiswa.length - i - 1; j++) {
+                if ((nilaiKuis[j] * 0.10 + nilaiSoftSkill[j] * 0.10 + nilaiTugas[j] * 0.20 +
+                        nilaiUTS[j] * 0.30 + nilaiUAS[j] * 0.30) < (nilaiKuis[j + 1] * 0.10
+                                + nilaiSoftSkill[j + 1] * 0.10 +
+                                nilaiTugas[j + 1] * 0.20 + nilaiUTS[j + 1] * 0.30 + nilaiUAS[j + 1] * 0.30)) {
+                    // pertukaran
+                    double temp;
+                    temp = nilaiKuis[j];
+                    nilaiKuis[j] = nilaiKuis[j + 1];
+                    nilaiKuis[j + 1] = temp;
+
+                    temp = nilaiSoftSkill[j];
+                    nilaiSoftSkill[j] = nilaiSoftSkill[j + 1];
+                    nilaiSoftSkill[j + 1] = temp;
+
+                    temp = nilaiTugas[j];
+                    nilaiTugas[j] = nilaiTugas[j + 1];
+                    nilaiTugas[j + 1] = temp;
+
+                    temp = nilaiUTS[j];
+                    nilaiUTS[j] = nilaiUTS[j + 1];
+                    nilaiUTS[j + 1] = temp;
+
+                    temp = nilaiUAS[j];
+                    nilaiUAS[j] = nilaiUAS[j + 1];
+                    nilaiUAS[j + 1] = temp;
+
+                    String namamhs;
+                    namamhs = namaMahasiswa[j];
+                    namaMahasiswa[j] = namaMahasiswa[j + 1];
+                    namaMahasiswa[j + 1] = namamhs;
+
+                    namamhs = npmMahasiswa[j];
+                    npmMahasiswa[j] = npmMahasiswa[j + 1];
+                    npmMahasiswa[j + 1] = namamhs;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Masukkan jumlah mahasiswa: ");
         int jumlahMahasiswa = Integer.parseInt(buff.readLine());
 
-        latihan1 sistemNilai = new latihan1(jumlahMahasiswa);
+        latihan1 asd = new latihan1(jumlahMahasiswa);
 
         for (int i = 0; i < jumlahMahasiswa; i++) {
             System.out.println("Data Mahasiswa ke-" + (i + 1));
@@ -102,15 +146,16 @@ public class latihan1 {
             System.out.print("Nilai UAS: ");
             double uas = Double.parseDouble(buff.readLine());
 
-            sistemNilai.inputDataMahasiswa(i, nama, npm, kuis, softskill, tugas, uts, uas);
+            asd.inputDataMahasiswa(i, nama, npm, kuis, softskill, tugas, uts, uas);
         }
-
+        System.out.println("Data Mahasiswa diurutkan berdasarkan nilai akhir  (descending) ");
+        asd.descending_berdasarkan_nilai_akhir();
         System.out.println("\nDaftar Nilai Mahasiswa:");
-        sistemNilai.hitungNilaiAkhir();
+        asd.hitungNilaiAkhir();
 
         System.out.print("\nCari (Nama/NPM): ");
         String cari = buff.readLine();
-        sistemNilai.cariMahasiswa(cari);
-        // urutkan data secara ascending atau desending bebas dengan npm atau nilai akhir
+        asd.cariMahasiswa(cari);
+
     }
 }
