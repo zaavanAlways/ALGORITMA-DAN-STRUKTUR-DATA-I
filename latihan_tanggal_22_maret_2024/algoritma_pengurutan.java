@@ -1,7 +1,7 @@
-public class algoritma_pengurutan<T extends Comparable<? super T>> {
+public class algoritma_pengurutan<AnyType extends Comparable<? super AnyType>> {
 
-    public void bubbleSort(T[] array, int n) {
-        T temp;
+    public void bubbleSort(AnyType[] array, int n) {
+        AnyType temp;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 if (array[j].compareTo(array[j + 1]) > 0) {
@@ -25,6 +25,28 @@ public class algoritma_pengurutan<T extends Comparable<? super T>> {
                 }
             }
         }
+    }
+
+    // Ascending Maksimum
+    public void selection_Maks(AnyType[] array, int n) {
+        for (int i = n - 1; i > 0; i--) { // descending for(int i =0 ; i > n-1 ; i--)
+            int index_maks = 0;
+            // mencari elemen maks
+            for (int j = 1; j < i + 1; j++) {
+                if (array[j].compareTo(array[index_maks]) > 0) {
+                    index_maks = j;
+                }
+            }
+            // proses pertukaran
+            AnyType temp = array[index_maks];
+            array[index_maks] = array[i];
+            array[i] = temp;
+        }
+    }
+
+    //Ascending Minimum
+    public void selection_Min(AnyType[] array, int n){
+        
     }
 
     public static void main(String[] args) {
