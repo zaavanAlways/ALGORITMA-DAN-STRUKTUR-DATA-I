@@ -65,16 +65,15 @@ public class algoritma_pengurutan<AnyType extends Comparable<? super AnyType>> {
 
     public static void main(String[] args) {
         algoritma_pengurutan<Integer> asd = new algoritma_pengurutan<>(); /// untuk generic paramater pada method
-        //algoritma_pengurutan<> asd = new algoritma_pengurutan<>(); // untuk variabel int paramater pada method
+        // algoritma_pengurutan<> asd = new algoritma_pengurutan<>(); // untuk variabel
+        // int paramater pada method
 
         Integer[] array1 = { 34, 64, 90, 11, 25, 12, 22 };
-        System.out.println("Data belum urut : ");
-        System.out.println(Arrays.toString(array1));
+        System.out.println("Data belum urut : " + Arrays.toString(array1));
 
         asd.bubbleSort(array1, array1.length);
-        System.out.println("Data sudah terurut : ");
-        System.out.println(Arrays.toString(array1));
-        
+        System.out.println("Data sudah terurut : " + Arrays.toString(array1));
+
         // asd.selection_Min(array1, array1.length);
         // System.out.println("Data terurut secara minimum : ");
         // System.out.println(Arrays.toString(array1));
@@ -82,17 +81,17 @@ public class algoritma_pengurutan<AnyType extends Comparable<? super AnyType>> {
         // asd.selection_Maks(array1, array1.length);
         // System.out.println("Data terurut secara maksimum : ");
         // System.out.println(Arrays.toString(array1));
-        
+
         System.out.println();
-      // tambahkan pemanggilan method selection_maks dan selection_min
+        // tambahkan pemanggilan method selection_maks dan selection_min
 
-      algoritma_pengurutan<Integer>sku = new algoritma_pengurutan<>();
-      int[] arrays2 = {2,4,19,8,1};
-      System.out.println("Data belum urut : ");
-      System.out.println(Arrays.toString(arrays2));
+        algoritma_pengurutan<Integer> sku = new algoritma_pengurutan<>();
+        int[] arrays2 = { 2, 4, 19, 8, 1 };
+        System.out.println("Data belum urut : ");
+        System.out.println(Arrays.toString(arrays2));
 
-      sku.bubbleSort_1(arrays2, arrays2.length);
-      System.out.println("Data sudah terurut : ");
-      System.out.println(Arrays.toString(arrays2));
+        sku.bubbleSort_1(arrays2, arrays2.length);
+        System.out.println("Data sudah terurut : ");
+        System.out.println(Arrays.toString(arrays2));
     }
 }

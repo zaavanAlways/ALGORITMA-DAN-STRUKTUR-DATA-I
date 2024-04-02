@@ -35,10 +35,10 @@ public class Insertion_Sort {
         System.out.print("Data Belum Terurut  :" + Arrays.toString(data));
         System.out.println();
         insertionSort_Ascending(data, data.length);
-        System.out.println("Data Terurut Secara Ascending : " + Arrays.toString(data));
+        System.out.print("Data Terurut Secara Ascending : " + Arrays.toString(data));
         System.out.println();
         insertionSort_Descending(data, data.length);
-        System.out.println("Data Terurut Secara Descending : " + Arrays.toString(data));
+        System.out.print("Data Terurut Secara Descending : " + Arrays.toString(data));
 
     }
 }
