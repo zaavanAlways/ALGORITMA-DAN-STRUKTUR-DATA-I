@@ -1,8 +1,5 @@
 package latihan_tanggal_2_april_2024;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class Insertion_Sort {
@@ -33,11 +30,15 @@ public class Insertion_Sort {
         }
     }
 
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) {
+        int data[] = { 26, 54, 93, 17, 77, 31, 44, 55, 20 };
+        System.out.print("Data Belum Terurut  :" + Arrays.toString(data));
+        System.out.println();
+        insertionSort_Ascending(data, data.length);
+        System.out.println("Data Terurut Secara Ascending : " + Arrays.toString(data));
+        System.out.println();
+        insertionSort_Descending(data, data.length);
+        System.out.println("Data Terurut Secara Descending : " + Arrays.toString(data));
 
-        System.out.print("Masukkan Banyak array : ");
-        int data = Integer.parseInt(buff.readLine());
-        insertionSort_Ascending(null, data);
     }
 }
