@@ -96,10 +96,10 @@ class Operasi { // insert dan delete
             return;
         }
         Node ptr = awal;
-        System.out.print(awal.getData() + "->");
+        System.out.print(awal.getData() + " -> ");
         ptr = awal.getPointer();
         while (ptr.getPointer() != null) {
-            System.out.print(ptr.getData() + "->");
+            System.out.print(ptr.getData() + " -> ");
             ptr = ptr.getPointer();
         }
         System.out.print(ptr.getData());
@@ -111,16 +111,17 @@ class Operasi { // insert dan delete
         } else {
             if (awal == akhir) { // node di list hanya ada satu
                 awal = akhir = null;
+                size = 0;
             } else { // node di list lebih dari satu
                 Node nPtr = awal;
                 while (nPtr.pointer != akhir) {
                     nPtr = nPtr.pointer;
                 }
                 akhir = nPtr;
-                akhir.pointer = null;
+                akhir.setPointer(null);
+                size--;
             }
         }
-        size--;
     }
 
     public void deleteAwal() {
@@ -129,34 +130,32 @@ class Operasi { // insert dan delete
         } else {
             if (awal == akhir) {
                 awal = akhir = null;
-            } else {
-                awal = awal.pointer;
-            } 
+                size = 0;
+            }
+            awal = awal.getPointer();
+            size--;
         }
-        size--;
     }
 
-    public void deletPosisi(int posisi){
-        if(isEmpty()){
+    public void deletePosisi(int posisi) {
+        if (isEmpty()) {
             System.out.println("List Kosong");
-        }else if(posisi == 1){
-            // awal  = awal.getPointer();
+        } else if (posisi < 1 || posisi > size) {
+            System.out.println("Posisi tidak valid");
+        } else if (posisi == 1) {
+            // awal = awal.getPointer();
             this.deleteAwal();
-        }else if(posisi == size){
+        } else if (posisi == size) {
             this.deleteAkhir();
-        }
-        Node ptr = awal;
-        posisi = posisi - 1;
-        for(int i = 1 ; i < size - 1; i++){
-            if(i == posisi){
-                Node temp = ptr.getPointer();
-                temp = temp.getPointer();
-                ptr.setPointer(temp);
-                break;
+        } else {
+            Node ptr = awal;
+            for (int i = 1; i < posisi - 2; i++) {
+                ptr = ptr.getPointer();
             }
-            ptr = ptr.getPointer();
+            Node temp = ptr.getPointer();
+            ptr.setPointer(temp.getPointer());
+            size--;
         }
-        size--;
     }
 }
 
@@ -170,7 +169,7 @@ public class singly_Linked_List {
         op.insertPosisi(25, 2); // 20 -> 25 -> 10 -> 5 -> 15
         // op.deleteAwal(); // 25 -> 10 -> 5 -> 15
         // op.deleteAkhir(); // 25 -> 10 -> 5
-        op.deletPosisi(10);
+        op.deletePosisi(4); // 20 -> 25 -> 5 -> 15
         op.tampilList();
     }
 }
