@@ -104,13 +104,14 @@ class Operasi { // insert dan delete
         }
         System.out.print(ptr.getData());
     }
-    public void deleteAkhir(){
-        if(isEmpty()){
+
+    public void deleteAkhir() {
+        if (isEmpty()) {
             System.out.println("List Kosong");
-        }else{
-            if(awal == akhir){ // node di list hanya ada satu 
+        } else {
+            if (awal == akhir) { // node di list hanya ada satu
                 awal = akhir = null;
-            }else{ // node di list lebih dari satu
+            } else { // node di list lebih dari satu
                 Node nPtr = awal;
                 while (nPtr.pointer != akhir) {
                     nPtr = nPtr.pointer;
@@ -119,6 +120,43 @@ class Operasi { // insert dan delete
                 akhir.pointer = null;
             }
         }
+        size--;
+    }
+
+    public void deleteAwal() {
+        if (isEmpty()) {
+            System.out.println("List kosong ");
+        } else {
+            if (awal == akhir) {
+                awal = akhir = null;
+            } else {
+                awal = awal.pointer;
+            } 
+        }
+        size--;
+    }
+
+    public void deletPosisi(int posisi){
+        if(isEmpty()){
+            System.out.println("List Kosong");
+        }else if(posisi == 1){
+            // awal  = awal.getPointer();
+            this.deleteAwal();
+        }else if(posisi == size){
+            this.deleteAkhir();
+        }
+        Node ptr = awal;
+        posisi = posisi - 1;
+        for(int i = 1 ; i < size - 1; i++){
+            if(i == posisi){
+                Node temp = ptr.getPointer();
+                temp = temp.getPointer();
+                ptr.setPointer(temp);
+                break;
+            }
+            ptr = ptr.getPointer();
+        }
+        size--;
     }
 }
 
@@ -130,7 +168,9 @@ public class singly_Linked_List {
         op.insertAkhir(15); // 5-> 10->15
         op.insertAwal(20);// 20 -> 10 -> 5 ->15
         op.insertPosisi(25, 2); // 20 -> 25 -> 10 -> 5 -> 15
-        op.deleteAkhir();
+        // op.deleteAwal(); // 25 -> 10 -> 5 -> 15
+        // op.deleteAkhir(); // 25 -> 10 -> 5
+        op.deletPosisi(10);
         op.tampilList();
     }
 }
