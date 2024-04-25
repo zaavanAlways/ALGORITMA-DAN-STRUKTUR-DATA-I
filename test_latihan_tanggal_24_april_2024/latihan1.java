@@ -1,5 +1,3 @@
-package test_latihan_tanggal_24_april_2024;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -70,7 +68,7 @@ class Guru implements Comparable<Guru> {
     }
 }
 
-public class Main {
+public class latihan1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Guru> guruList = new ArrayList<>();
