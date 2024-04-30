@@ -95,13 +95,14 @@ class Operasi {
             insertAkhir(x);
         } else {
             Node pointer = awal;
-            for (int i = 2; i < size; i++) {
+            for (int i = 2; i <= size; i++) {
                 if (i == posisi) {
                     Node temp = pointer.getNext();
                     pointer.setNext(nPointer);
                     nPointer.setPrev(pointer);
-                    temp.setPrev(temp);
                     temp.setPrev(nPointer);
+                    nPointer.setNext(temp);
+                    break;
                 }
                 pointer = pointer.getNext();
             }
@@ -128,19 +129,9 @@ class Operasi {
 
     public void deletePosisi(int posisi) {
         if (posisi == 1) { // posisi awal yang dihapus
-            if (size == 1) { // data hanya ada satu
-                awal = null;
-                akhir = null;
-                size = 0;
-            } else { // data lebih dari satu
-                awal = awal.getNext();
-                awal.setPrev(null);
-                size--;
-            }
+            deleteAwal();
         } else if (posisi == size) {
-            akhir = akhir.getPrev();
-            akhir.setNext(null);
-            size--;
+            deleteAkhir();
         } else {
             Node pointer = awal.getNext();
             for (int i = 2; i < size; i++) {
@@ -199,7 +190,7 @@ public class double_linked_list {
         asd.insertPosisi(15, 2); // 40 <->
         asd.deletePosisi(1);
         asd.deleteAwal();
-        asd.deleteAkhir();
+
         asd.tampilData();
     }
 }
