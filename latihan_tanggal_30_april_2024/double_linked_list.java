@@ -165,7 +165,24 @@ class Operasi {
             awal = null;
             akhir = null;
         } else {
+            awal = awal.getNext();
+            awal.setPrev(null);
+        }
+        size--;
+    }
 
+    public void deleteAkhir() {
+        if (isEmpty()) {
+            System.out.println("Linked list kosong");
+        } else {
+            if (size == 1) {
+                awal = null;
+                akhir = null;
+            } else {
+                akhir = akhir.getPrev();
+                akhir.setNext(null);
+            }
+            size--;
         }
     }
 }
@@ -181,6 +198,8 @@ public class double_linked_list {
         asd.insertAwal(40); // 40 <-> 20 <-> 10 <-> 30
         asd.insertPosisi(15, 2); // 40 <->
         asd.deletePosisi(1);
+        asd.deleteAwal();
+        asd.deleteAkhir();
         asd.tampilData();
     }
 }
