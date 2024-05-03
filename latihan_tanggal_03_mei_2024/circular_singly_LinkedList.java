@@ -1,4 +1,4 @@
-package latihan_tanggal_05_mei_2024;
+package latihan_tanggal_03_mei_2024;
 
 class Node {
     int data;
