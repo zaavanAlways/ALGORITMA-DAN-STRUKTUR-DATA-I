@@ -39,8 +39,10 @@ public void insertAwal(int x){
         size++;
     }
     public void insertPosisi(int x, int posisi){
-        Node temp,newNode;
+        Node temp;
+        Node newNode = new Node();
         int i, count;
+        temp = head;
     }
 }
 
