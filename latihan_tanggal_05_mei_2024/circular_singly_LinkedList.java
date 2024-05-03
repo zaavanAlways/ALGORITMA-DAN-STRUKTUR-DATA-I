@@ -1,4 +1,4 @@
-package latihan_tanggal_05_april_2024;
+package latihan_tanggal_05_mei_2024;
 Class Node{
 
 
@@ -41,8 +41,29 @@ public void insertAwal(int x){
     public void insertPosisi(int x, int posisi){
         Node temp;
         Node newNode = new Node();
-        int i, count;
-        temp = head;
+        int i, count = size;
+
+        if(isEmpty() || size < posisi){
+            System.out.println("List Kosong atau posisi melebihi size");
+        }else{
+            newNode.data = x;
+            for(i = 1 ;i < posisi;i++){
+                temp = temp.next;
+            }
+            newNode.next = temp.next;
+            temp.next = newNode;
+            size++;
+        }
+    }
+    public void tampilData(){
+        Node temp = head;
+        if(head != null){
+            do{
+                System.out.println("%d ", temp.data);
+                temp = temp.next;
+            }while(temp != head);
+        }
+        System.out.println();
     }
 }
 
