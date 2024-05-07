@@ -64,6 +64,7 @@ class Operasi_angga {
             newNode.prev = temp;
             head.prev = newNode;
         }
+        size++;
     }
 }
 
