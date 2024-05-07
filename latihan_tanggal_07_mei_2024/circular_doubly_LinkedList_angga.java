@@ -43,6 +43,28 @@ class Operasi_angga {
         }
         size++;
     }
+
+    public void insertAkhir_angga(int x) {
+        Node newNode = new Node();
+        newNode.data = x;
+        newNode.next = null;
+        newNode.prev = null;
+        if (isEmpty_angga()) {
+            head = newNode;
+            newNode.next = head;
+            newNode.prev = head;
+        } else {
+            Node temp = new Node();
+            temp = head;
+            while (temp.next != head) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+            newNode.next = head;
+            newNode.prev = temp;
+            head.prev = newNode;
+        }
+    }
 }
 
 public class circular_doubly_LinkedList_angga {
