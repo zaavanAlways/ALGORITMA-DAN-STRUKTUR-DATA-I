@@ -107,7 +107,7 @@ class Operasi_angga {
         }
     }
 
-    public void deleteAwal() {
+    public void deleteAwal_angga() {
         if (isEmpty_angga()) {
             System.out.println("List Kosong !");
         } else {
@@ -127,6 +127,47 @@ class Operasi_angga {
             size--;
         }
     }
+
+    public void deleteAkhir_angga() {
+        if (isEmpty_angga()) {
+            System.out.println("List kosong !");
+        } else {
+            if (head.next == head) { // jika hanya ada satu data
+                head = null;
+            } else {
+                Node temp = new Node();
+                temp = head;
+                while (temp.next.next != head) {
+                    temp = temp.next;
+                }
+                Node lastNode = temp.next;
+                temp.next = head;
+                head.prev = temp;
+                lastNode = null;
+            }
+            size--;
+        }
+    }
+
+    public void deletePosisi_angga(int posisi) {
+        Node nodeDelete = head;
+        Node temp = head;
+        if (posisi == 1) {
+            deleteAwal_angga();
+        } else if (posisi == size) {
+            deleteAkhir_angga();
+        } else {
+            temp = head;
+            for (int i = 1; i < posisi - 1; i++) {
+                temp = temp.next;
+            }
+            nodeDelete = temp.next;
+            temp.next = temp.next.next;
+            temp.next.prev = temp;
+            nodeDelete = null;
+            size--;
+        }
+    }
 }
 
 public class circular_doubly_LinkedList_angga {
@@ -137,6 +178,12 @@ public class circular_doubly_LinkedList_angga {
         asd.insertAkhir_angga(30); // 20 10 30
         asd.insertAkhir_angga(40); // 20 10 30 40
         asd.insertPosisi_angga(15, 2); // 20 15 10 30 40
+        asd.tampilData_angga();
+        asd.deleteAwal_angga(); // 15 10 30 40
+        asd.tampilData_angga();
+        asd.deleteAkhir_angga(); // 15 10 30
+        asd.tampilData_angga();
+        asd.deletePosisi_angga(2); // 15 30
         asd.tampilData_angga();
     }
 

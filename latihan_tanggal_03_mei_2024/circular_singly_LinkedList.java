@@ -138,12 +138,10 @@ public class circular_singly_LinkedList {
         asd.insertAwal(20);
         asd.insertAwal(30);
         asd.insertAkhir(40);
-        asd.tampilData();
-        asd.deleteAwal();
-        asd.tampilData();
+        asd.insertAkhir(50);
+        asd.insertAkhir(60);
         asd.insertPosisi(15, 2);
         asd.tampilData();
-        asd.deletePosisi(2);
-        asd.tampilData();
+
     }
 }
