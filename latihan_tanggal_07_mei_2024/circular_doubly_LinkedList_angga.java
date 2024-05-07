@@ -110,7 +110,13 @@ class Operasi_angga {
 
 public class circular_doubly_LinkedList_angga {
     public static void main(String[] args) {
-
+        Operasi_angga asd = new Operasi_angga();
+        asd.insertAwal_angga(10); // 10
+        asd.insertAwal_angga(20); // 20 10
+        asd.insertAkhir_angga(30); // 20 10 30
+        asd.insertAkhir_angga(40); // 20 10 30 40
+        asd.insertPosisi_angga(15, 2); // 20 15 10 30 40
+        asd.tampilData_angga();
     }
 
 }
