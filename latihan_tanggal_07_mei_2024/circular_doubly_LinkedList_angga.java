@@ -66,6 +66,29 @@ class Operasi_angga {
         }
         size++;
     }
+
+    public void insertPosisi_angga(int x, int posisi) {
+        Node newNode = new Node();
+        newNode.data = x;
+        newNode.next = null;
+        Node temp;
+        if (posisi == 1) {
+            insertAwal_angga(x);
+        } else if (posisi == size) {
+            insertAkhir_angga(x);
+        } else {
+            temp = head;
+            for (int i = 1; i < posisi - 1; i++) {
+                temp = temp.next;
+            }
+            newNode.next = temp.next;
+            newNode.next.prev = newNode;
+            newNode.prev = temp;
+            temp.next = newNode;
+
+            size++;
+        }
+    }
 }
 
 public class circular_doubly_LinkedList_angga {
