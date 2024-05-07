@@ -134,14 +134,17 @@ class Operasi {
 public class circular_singly_LinkedList {
     public static void main(String[] args) {
         Operasi asd = new Operasi();
-        asd.insertAwal(10);
-        asd.insertAwal(20);
-        asd.insertAwal(30);
-        asd.insertAkhir(40);
-        asd.insertAkhir(50);
-        asd.insertAkhir(60);
-        asd.insertPosisi(15, 2);
+        asd.insertAwal(10); // 10
+        asd.insertAwal(20); // 20 10
+        asd.insertAkhir(30); // 20 10 30
+        asd.insertAkhir(40); // 20 10 30 40
+        asd.insertPosisi(15, 2); // 20 15 10 30 40
         asd.tampilData();
-
+        asd.deleteAwal();// 15 10 30 40
+        asd.tampilData();
+        asd.deleteAkhir(); // 15 10 30
+        asd.tampilData();
+        asd.deletePosisi(2); // 15 30
+        asd.tampilData();
     }
 }
