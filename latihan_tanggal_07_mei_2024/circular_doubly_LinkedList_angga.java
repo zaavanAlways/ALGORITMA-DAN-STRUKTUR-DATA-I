@@ -89,6 +89,23 @@ class Operasi_angga {
             size++;
         }
     }
+
+    public void tampilData_angga() {
+        Node temp = new Node();
+        temp = head;
+        if (temp != null) {
+            while (true) {
+                System.out.print(temp.data + " ");
+                temp = temp.next;
+                if (temp == head) {
+                    break;
+                }
+            }
+            System.out.println();
+        } else {
+            System.out.println("List Kosong !");
+        }
+    }
 }
 
 public class circular_doubly_LinkedList_angga {
