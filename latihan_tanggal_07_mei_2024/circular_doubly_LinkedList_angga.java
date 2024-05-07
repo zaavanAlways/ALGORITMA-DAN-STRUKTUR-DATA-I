@@ -106,6 +106,27 @@ class Operasi_angga {
             System.out.println("List Kosong !");
         }
     }
+
+    public void deleteAwal() {
+        if (isEmpty_angga()) {
+            System.out.println("List Kosong !");
+        } else {
+            if (head.next == head) {
+                head = null;
+            } else {
+                Node temp = head;
+                Node firstNode = head;
+                while (temp.next != head) {
+                    temp = temp.next;
+                }
+                head = head.next;
+                head.prev = temp;
+                temp.next = head;
+                firstNode = null;
+            }
+            size--;
+        }
+    }
 }
 
 public class circular_doubly_LinkedList_angga {
