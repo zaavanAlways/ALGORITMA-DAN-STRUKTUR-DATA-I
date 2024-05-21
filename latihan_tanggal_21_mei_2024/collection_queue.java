@@ -4,15 +4,13 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import javafx.scene.layout.Priority;
+
 
 import java.util.Iterator;
 
 
 public class collection_queue {
-    /**
-     * @param args
-     */
+   
     public static void main(String[] args) {
         Queue<Integer> queue = new LinkedList<>();
         //insert
