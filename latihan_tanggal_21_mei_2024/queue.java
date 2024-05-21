@@ -51,15 +51,34 @@ class ArrayQueue{
         }
         System.out.println();
     }
-    
+    public int deQueue(){
+        if(isEmpty()){
+            throw new NoSuchElementException("Queue Kosong !");
+        }else{
+            len--;
+            int x = Queue[head]; // elemen yang dihapus
+            if(head == tail){ // jika hanya ada satu data
+                head = -1;
+                tail = -1;
+            }else{
+                head++;
+            }
+            return x;
+        }
+    }    
 }
 public class queue{
     public static void main(String[] args) {
-        ArrayQueue queue = new ArrayQueue(100); // 
+        ArrayQueue queue = new ArrayQueue(100);  
         queue.unQueue(10);
         queue.unQueue(20);
         queue.unQueue(30);
+        queue.unQueue(40);
+        queue.unQueue(50);
         
+        queue.tampilQueue(); 
+        System.out.println("Data Terdepan queue adalah : " + queue.getHead());
+        System.out.println("Data Pertama yang dihapus adalah : " + queue.deQueue());
         queue.tampilQueue(); 
         System.out.println("Data Terdepan queue adalah : " + queue.getHead());
     }
