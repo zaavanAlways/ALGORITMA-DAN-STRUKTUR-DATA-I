@@ -187,9 +187,9 @@ public class double_linked_list {
         asd.insertAwal(20); // 20 <-> 10
         asd.insertAkhir(30); // 20 <-> 10 <-> 30
         asd.insertAwal(40); // 40 <-> 20 <-> 10 <-> 30
-        asd.insertPosisi(15, 2); // 40 <->
-        asd.deletePosisi(1);
-        asd.deleteAwal();
+        asd.insertPosisi(15, 2); // 40 <-> 15 <-> 20 <-> 10 <-> 30
+        asd.deletePosisi(1); // 15 <-> 20 <-> 10 <-> 30
+        asd.deleteAwal(); // 20 <-> 10 <-> 30
 
         asd.tampilData();
     }
